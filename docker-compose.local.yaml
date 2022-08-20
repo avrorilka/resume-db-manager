@@ -1,0 +1,49 @@
+version: "3"
+
+services:
+
+  api:
+    build:
+      dockerfile: Dockerfile.local
+    restart: unless-stopped
+    volumes:
+      - ./docker/api/php/config/docker-opcache.ini:/usr/local/etc/php/conf.d/docker-opcache.ini
+    environment:
+      PHP_IDE_CONFIG: "serverName=Docker"
+    depends_on:
+      - mysql
+    networks:
+      practic22:
+        ipv4_address: ${API_IPV4}
+
+  frontend:
+    build:
+      dockerfile: ../docker/frontend/Dockerfile.local
+    command: npm start
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    volumes:
+      - ./frontend:${FRONTEND_DIRECTORY}
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  nginx:
+    build:
+      dockerfile: Dockerfile.local
+    restart: unless-stopped
+    volumes:
+      - ./docker/certs/local:/etc/nginx/certs
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      NODE_ENV: dev
+      NGINX_HOST: ${NGINX_HOST_LOCAL}
+      NGINX_PORT: ${NGINX_PORT_LOCAL}
+      NGINX_CERT_CRT: ${NGINX_CERT_CRT_LOCAL}
+      NGINX_CERT_KEY: ${NGINX_CERT_KEY_LOCAL}
+
+
+volumes:
+  mysql:

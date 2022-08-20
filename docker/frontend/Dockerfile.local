@@ -1,0 +1,16 @@
+FROM node:14.17.1-alpine3.13
+
+WORKDIR /var/www/practic22/frontend
+
+COPY package*.json ./
+
+RUN npm install
+
+RUN npm cache clean -f
+RUN npm cache verify
+RUN npm install -g react-scripts
+RUN npm audit fix
+
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["docker-entrypoint.sh"]

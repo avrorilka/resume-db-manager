@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./docker/api/php/config/docker-opcache.ini:/usr/local/etc/php/conf.d/docker-opcache.ini
+    depends_on:
+      - mysql
+    networks:
+      practic22:
+        ipv4_address: ${API_IPV4}
+
+  nginx:
+    build:
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./docker/certs/dev:/etc/nginx/certs
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      NODE_ENV: dev
+      NGINX_HOST: ${NGINX_HOST_DEV}
+      NGINX_PORT: ${NGINX_PORT_DEV}
+      NGINX_CERT_CRT: ${NGINX_CERT_CRT_DEV}
+      NGINX_CERT_KEY: ${NGINX_CERT_KEY_DEV}

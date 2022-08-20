@@ -1,0 +1,54 @@
+.drawer-card{
+    border-radius: 10px;
+    margin: 15px!important;
+}
+.blue-gradient-card{
+    background: linear-gradient(45deg, rgb(189, 197, 255) 0%, rgb(162, 234, 252) 100%);
+    box-shadow: 0 10px 30px rgba(35,210,253,.5)
+}
+.orange-gradient-card{
+    background: linear-gradient(45deg, rgb(252, 197, 189) 0%, rgb(250, 178, 191) 100%);
+    box-shadow: 0 10px 30px rgba(255,153,139,.5)
+}
+.purple-gradient-card{
+    background: linear-gradient(45deg, rgb(180, 186, 250) 0%, rgb(250, 187, 240) 100%);
+    box-shadow: 0 10px 30px rgba(250,129,232,.5)
+}
+.green-gradient-card{
+    background: linear-gradient(45deg, rgb(200, 250, 180) 0%, rgb(250, 237, 187) 100%);
+    box-shadow: 0 10px 30px rgba(129, 250, 153, 0.5)
+}
+.mint-gradient-card{
+    background: linear-gradient(45deg, rgb(142, 254, 200) 0%, rgb(186, 193, 248) 100%);
+    box-shadow: 0 5px 30px rgba(142, 254, 200, 0.7)
+}
+.mint-gradient-box{
+    background: linear-gradient(45deg, rgb(142, 254, 200) 0%, rgb(186, 193, 248) 100%);
+    box-shadow: 0 5px 30px rgba(142, 254, 200, 0.7);
+    padding: 1em;
+    color: white;
+    border-radius: 10px;
+}
+.purple-gradient-table{
+    border-radius: 10px;
+}
+.table-cell{
+    border: 1px solid rgb(224, 224, 224);
+}
+.purple-neon-card{
+    border-radius: 30px !important;
+    padding: 10rem;
+    background: linear-gradient(45deg, rgb(189, 197, 255) 0%, rgb(162, 234, 252) 100%);
+    box-shadow: 10px 10px 100px rgb(164, 126, 204) !important;
+}
+.MuiAvatar-root{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.profile-card-content{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 30%
+}
