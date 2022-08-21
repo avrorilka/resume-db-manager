@@ -1,18 +1,14 @@
-# Default DOCKER Progect
-
-Configure docker to up container.
-
-## Getting Started
+# Web Application For CV Database Management
 
 These instructions will cover usage information and for the docker container
 
-### Prerequisities
+During the industrial practice, a product was designed, which is a software application for working with resumes, to assimilate the acquired knowledge.
+
+The PHP framework Symfony, React, MySQL database will be used to create the software application.
+
+## Getting Started
 
 In order to run this container you'll need docker installed.
-
-- [Windows](https://docs.docker.com/windows/started)
-- [OS X](https://docs.docker.com/mac/started/)
-- [Linux](https://docs.docker.com/linux/started/)
 
 ### Make migrations
 
@@ -34,30 +30,10 @@ php bin/console doctrine:migrations:migrate
 
 ### Usage (Scripts)
 
-Stop, delete all containers and recreate this in `development` version
-
-```shell
-./dev_recreate_docker.sh
-```
-
 Stop, delete all containers and recreate this in `local` version
 
 ```shell
 ./local_recreate_docker.sh
-```
-
-### Usage (Detailed)
-
-Build container in `development` version in the background
-
-```shell
-docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up --build -d
-```
-
-Build container in `local` version in the background
-
-```shell
-docker-compose -f docker-compose.yaml -f docker-compose.local.yaml up --build -d
 ```
 
 #### Symfony .env.local configuration
@@ -67,31 +43,34 @@ Database configuration
 ```text
 DATABASE_URL=mysql://practic22-user:q123123123@172.22.0.8:3306/practic22?serverVersion=5.7
 ```
-
-#### Show logs
-
-For FRONTEND container use (todo):
-
-```text
-docker-compose logs -f --tail 50 frontend
-```
-
-For API container use:
-
-```text
-docker-compose logs -f --tail 50 api
-```
-
-For NGINX container use:
-
-```text
-docker-compose logs -f --tail 50 nginx
-```
-
-#### In browser
-
 Access from browser
 
 - [Backend](https://practic22.com/api)
 - [Frontend](https://practic22.com)
 - [PhpMyAdmin](http://practic22.com:8080)
+
+## Project Preview
+
+**<p>Main page</p>**
+The main page of the application contains a list of all available companies to which the authorized user can submit their resumes. 
+<img src="https://i.imgur.com/4j0CnZg.png" alt="main-page" width="700">
+
+**<p>User profile</p>**
+In the user's account, it is possible to view one's own complete information, randomized profile photo, name, identification number, mailbox, mobile phone number. 
+<img src="https://i.imgur.com/moQxUY6.png" alt="user-profile" width="700">
+
+**<p>Login to the system</p>**
+The application uses JWT to verify user authentication.
+If the user has forgotten the password, he can send a request to change it by entering his own mailbox. 
+Next, the system will check the availability of this address in the system and send a key for installation to the mail. 
+This key can only be used once.
+<img src="https://i.imgur.com/7HON81V.png" alt="login" width="700">
+
+**<p>Administrative menu</p>**
+First, all created records with selected fields and pagination (two records per page) appear in front of the user.
+Next, the administrator can delete, change, view detailed information about an existing item or create a new one. 
+The company page displays all submitted resumes to a specific company.
+<img src="https://i.imgur.com/oQagVV3.png" alt="administrative-menu" width="700">
+
+**<p>Resume</p>**
+<img src="https://i.imgur.com/vw74QMW.png" alt="resume" width="700">
