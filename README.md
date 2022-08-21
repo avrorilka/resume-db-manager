@@ -6,6 +6,9 @@ During the industrial practice, a product was designed, which is a software appl
 
 The PHP framework Symfony, React, MySQL database will be used to create the software application.
 
+<img src="https://i.imgur.com/RsIiWHr.png" alt="main-page" width="900">
+
+
 ## Getting Started
 
 In order to run this container you'll need docker installed.
